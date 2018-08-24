@@ -1,0 +1,149 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -5.128
+TNS   : -117.122
+
+Type  : Slow 1100mV 85C Model Setup 'control:c1|current_state.dooropen'
+Slack : -3.827
+TNS   : -3.827
+
+Type  : Slow 1100mV 85C Model Setup 'control:c2|current_state.dooropen'
+Slack : -3.404
+TNS   : -3.404
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.377
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'control:c2|current_state.dooropen'
+Slack : 2.548
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'control:c1|current_state.dooropen'
+Slack : 2.708
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -23.052
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'control:c1|current_state.dooropen'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'control:c2|current_state.dooropen'
+Slack : 0.376
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -4.708
+TNS   : -109.795
+
+Type  : Slow 1100mV 0C Model Setup 'control:c1|current_state.dooropen'
+Slack : -3.906
+TNS   : -3.906
+
+Type  : Slow 1100mV 0C Model Setup 'control:c2|current_state.dooropen'
+Slack : -3.483
+TNS   : -3.483
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.122
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'control:c2|current_state.dooropen'
+Slack : 2.572
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'control:c1|current_state.dooropen'
+Slack : 2.752
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -24.930
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'control:c1|current_state.dooropen'
+Slack : 0.343
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'control:c2|current_state.dooropen'
+Slack : 0.395
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -3.606
+TNS   : -72.402
+
+Type  : Fast 1100mV 85C Model Setup 'control:c1|current_state.dooropen'
+Slack : -1.670
+TNS   : -1.670
+
+Type  : Fast 1100mV 85C Model Setup 'control:c2|current_state.dooropen'
+Slack : -1.424
+TNS   : -1.424
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'control:c2|current_state.dooropen'
+Slack : 1.444
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'control:c1|current_state.dooropen'
+Slack : 1.507
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.084
+TNS   : -3.458
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'control:c1|current_state.dooropen'
+Slack : 0.436
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'control:c2|current_state.dooropen'
+Slack : 0.446
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -2.912
+TNS   : -56.508
+
+Type  : Fast 1100mV 0C Model Setup 'control:c1|current_state.dooropen'
+Slack : -1.596
+TNS   : -1.596
+
+Type  : Fast 1100mV 0C Model Setup 'control:c2|current_state.dooropen'
+Slack : -1.367
+TNS   : -1.367
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.172
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'control:c2|current_state.dooropen'
+Slack : 1.413
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'control:c1|current_state.dooropen'
+Slack : 1.481
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.082
+TNS   : -3.508
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'control:c1|current_state.dooropen'
+Slack : 0.435
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'control:c2|current_state.dooropen'
+Slack : 0.453
+TNS   : 0.000
+
+------------------------------------------------------------

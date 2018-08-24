@@ -1,0 +1,14 @@
+
+State Machine - |elevator5|control:c2|current_state
+Name current_state.dooropen current_state.movedown current_state.moveup current_state.idle 
+current_state.idle 0 0 0 0 
+current_state.moveup 0 0 1 1 
+current_state.movedown 0 1 0 1 
+current_state.dooropen 1 0 0 1 
+
+State Machine - |elevator5|control:c1|current_state
+Name current_state.dooropen current_state.movedown current_state.moveup current_state.idle 
+current_state.idle 0 0 0 0 
+current_state.moveup 0 0 1 1 
+current_state.movedown 0 1 0 1 
+current_state.dooropen 1 0 0 1 

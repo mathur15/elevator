@@ -1,0 +1,601 @@
+|elevator5
+LEDR[0] <= floor0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= floor1.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= floor2.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= floor3.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
+SW[0] => ~NO_FANOUT~
+SW[1] => ~NO_FANOUT~
+SW[2] => ~NO_FANOUT~
+SW[3] => ~NO_FANOUT~
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[9] => SW[9].IN15
+KEY[0] => KEY[0].IN1
+KEY[1] => KEY[1].IN1
+KEY[2] => KEY[2].IN1
+KEY[3] => KEY[3].IN1
+CLOCK_50 => CLOCK_50.IN15
+HEX2[0] <= decoder:dc2.s0
+HEX2[1] <= decoder:dc2.s1
+HEX2[2] <= decoder:dc2.s2
+HEX2[3] <= decoder:dc2.s3
+HEX2[4] <= decoder:dc2.s4
+HEX2[5] <= decoder:dc2.s5
+HEX2[6] <= decoder:dc2.s6
+HEX3[0] <= decoder:dc3.s0
+HEX3[1] <= decoder:dc3.s1
+HEX3[2] <= decoder:dc3.s2
+HEX3[3] <= decoder:dc3.s3
+HEX3[4] <= decoder:dc3.s4
+HEX3[5] <= decoder:dc3.s5
+HEX3[6] <= decoder:dc3.s6
+HEX0[0] <= decoder_right:dc0.s0
+HEX0[1] <= decoder_right:dc0.s1
+HEX0[2] <= decoder_right:dc0.s2
+HEX0[3] <= decoder_right:dc0.s3
+HEX0[4] <= decoder_right:dc0.s4
+HEX0[5] <= decoder_right:dc0.s5
+HEX0[6] <= decoder_right:dc0.s6
+HEX1[0] <= decoder_left:dc1.s0
+HEX1[1] <= decoder_left:dc1.s1
+HEX1[2] <= decoder_left:dc1.s2
+HEX1[3] <= decoder_left:dc1.s3
+HEX1[4] <= decoder_left:dc1.s4
+HEX1[5] <= decoder_left:dc1.s5
+HEX1[6] <= decoder_left:dc1.s6
+HEX4[0] <= decoder_right:dc4.s0
+HEX4[1] <= decoder_right:dc4.s1
+HEX4[2] <= decoder_right:dc4.s2
+HEX4[3] <= decoder_right:dc4.s3
+HEX4[4] <= decoder_right:dc4.s4
+HEX4[5] <= decoder_right:dc4.s5
+HEX4[6] <= decoder_right:dc4.s6
+HEX5[0] <= decoder_left:dc5.s0
+HEX5[1] <= decoder_left:dc5.s1
+HEX5[2] <= decoder_left:dc5.s2
+HEX5[3] <= decoder_left:dc5.s3
+HEX5[4] <= decoder_left:dc5.s4
+HEX5[5] <= decoder_left:dc5.s5
+HEX5[6] <= decoder_left:dc5.s6
+
+
+|elevator5|register:fl0
+d => q.OUTPUTSELECT
+floorin1 => always0.IN0
+floorin2 => always0.IN1
+reset => q.OUTPUTSELECT
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|elevator5|register:fl1
+d => q.OUTPUTSELECT
+floorin1 => always0.IN0
+floorin2 => always0.IN1
+reset => q.OUTPUTSELECT
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|elevator5|register:fl2
+d => q.OUTPUTSELECT
+floorin1 => always0.IN0
+floorin2 => always0.IN1
+reset => q.OUTPUTSELECT
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|elevator5|register:fl3
+d => q.OUTPUTSELECT
+floorin1 => always0.IN0
+floorin2 => always0.IN1
+reset => q.OUTPUTSELECT
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|elevator5|control:c1
+clock => current_state~1.DATAIN
+go => ~NO_FANOUT~
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+destination[0] => LessThan0.IN4
+destination[0] => LessThan1.IN4
+destination[0] => Equal0.IN3
+destination[1] => LessThan0.IN3
+destination[1] => LessThan1.IN3
+destination[1] => Equal0.IN2
+current_floor[0] => LessThan0.IN2
+current_floor[0] => LessThan1.IN2
+current_floor[0] => Equal0.IN1
+current_floor[0] => Equal1.IN1
+current_floor[0] => Equal2.IN0
+current_floor[0] => Equal3.IN1
+current_floor[0] => Equal4.IN1
+current_floor[1] => LessThan0.IN1
+current_floor[1] => LessThan1.IN1
+current_floor[1] => Equal0.IN0
+current_floor[1] => Equal1.IN0
+current_floor[1] => Equal2.IN1
+current_floor[1] => Equal3.IN0
+current_floor[1] => Equal4.IN0
+move_up <= move_up$latch.DB_MAX_OUTPUT_PORT_TYPE
+move_down <= move_down.DB_MAX_OUTPUT_PORT_TYPE
+door_open <= enable_set.DB_MAX_OUTPUT_PORT_TYPE
+statedelay => Selector0.IN3
+statedelay => Selector3.IN3
+enable_set <= enable_set.DB_MAX_OUTPUT_PORT_TYPE
+idlesignal <= idlesignal.DB_MAX_OUTPUT_PORT_TYPE
+floor0in <= floor0in.DB_MAX_OUTPUT_PORT_TYPE
+floor1in <= floor1in.DB_MAX_OUTPUT_PORT_TYPE
+floor2in <= floor2in.DB_MAX_OUTPUT_PORT_TYPE
+floor3in <= floor3in.DB_MAX_OUTPUT_PORT_TYPE
+floor1 => always0.IN1
+floor2 => always0.IN1
+floor3 => always0.IN1
+floor0 => always0.IN1
+enable => always0.IN1
+
+
+|elevator5|control:c2
+clock => current_state~1.DATAIN
+go => ~NO_FANOUT~
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+destination[0] => LessThan0.IN4
+destination[0] => LessThan1.IN4
+destination[0] => Equal0.IN3
+destination[1] => LessThan0.IN3
+destination[1] => LessThan1.IN3
+destination[1] => Equal0.IN2
+current_floor[0] => LessThan0.IN2
+current_floor[0] => LessThan1.IN2
+current_floor[0] => Equal0.IN1
+current_floor[0] => Equal1.IN1
+current_floor[0] => Equal2.IN0
+current_floor[0] => Equal3.IN1
+current_floor[0] => Equal4.IN1
+current_floor[1] => LessThan0.IN1
+current_floor[1] => LessThan1.IN1
+current_floor[1] => Equal0.IN0
+current_floor[1] => Equal1.IN0
+current_floor[1] => Equal2.IN1
+current_floor[1] => Equal3.IN0
+current_floor[1] => Equal4.IN0
+move_up <= move_up$latch.DB_MAX_OUTPUT_PORT_TYPE
+move_down <= move_down.DB_MAX_OUTPUT_PORT_TYPE
+door_open <= enable_set.DB_MAX_OUTPUT_PORT_TYPE
+statedelay => Selector0.IN3
+statedelay => Selector3.IN3
+enable_set <= enable_set.DB_MAX_OUTPUT_PORT_TYPE
+idlesignal <= idlesignal.DB_MAX_OUTPUT_PORT_TYPE
+floor0in <= floor0in.DB_MAX_OUTPUT_PORT_TYPE
+floor1in <= floor1in.DB_MAX_OUTPUT_PORT_TYPE
+floor2in <= floor2in.DB_MAX_OUTPUT_PORT_TYPE
+floor3in <= floor3in.DB_MAX_OUTPUT_PORT_TYPE
+floor1 => always0.IN1
+floor2 => always0.IN1
+floor3 => always0.IN1
+floor0 => always0.IN1
+enable => always0.IN1
+
+
+|elevator5|control_master:cm
+clock => enable2~reg0.CLK
+clock => enable1~reg0.CLK
+clock => destination2[0]~reg0.CLK
+clock => destination2[1]~reg0.CLK
+clock => destination1[0]~reg0.CLK
+clock => destination1[1]~reg0.CLK
+reset => destination1.OUTPUTSELECT
+reset => destination1.OUTPUTSELECT
+reset => destination2.OUTPUTSELECT
+reset => destination2.OUTPUTSELECT
+reset => enable1.OUTPUTSELECT
+reset => enable2.OUTPUTSELECT
+enable1 <= enable1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+enable2 <= enable2~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_floor1[0] => LessThan0.IN2
+current_floor1[0] => Equal2.IN1
+current_floor1[0] => Equal4.IN0
+current_floor1[0] => Equal6.IN1
+current_floor1[0] => Equal7.IN1
+current_floor1[0] => Equal12.IN1
+current_floor1[1] => LessThan0.IN1
+current_floor1[1] => Equal2.IN0
+current_floor1[1] => Equal4.IN1
+current_floor1[1] => Equal6.IN0
+current_floor1[1] => Equal7.IN0
+current_floor1[1] => Equal12.IN0
+current_floor2[0] => Equal0.IN1
+current_floor2[0] => LessThan0.IN4
+current_floor2[0] => Equal5.IN0
+current_floor2[0] => Equal8.IN1
+current_floor2[0] => Equal9.IN1
+current_floor2[0] => Equal13.IN1
+current_floor2[1] => Equal0.IN0
+current_floor2[1] => LessThan0.IN3
+current_floor2[1] => Equal5.IN1
+current_floor2[1] => Equal8.IN0
+current_floor2[1] => Equal9.IN0
+current_floor2[1] => Equal13.IN0
+destination1[0] <= destination1[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+destination1[1] <= destination1[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+destination2[0] <= destination2[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+destination2[1] <= destination2[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+idle1 => always0.IN0
+idle1 => always0.IN0
+idle1 => always0.IN1
+idle1 => always0.IN1
+idle1 => always0.IN1
+idle1 => always0.IN1
+idle2 => always0.IN1
+idle2 => always0.IN1
+idle2 => always0.IN1
+idle2 => always0.IN1
+idle2 => always0.IN1
+idle2 => always0.IN1
+floor0 => always0.IN1
+floor1 => always0.IN1
+floor2 => always0.IN1
+floor3 => always0.IN1
+move_up1 => ~NO_FANOUT~
+move_up2 => ~NO_FANOUT~
+move_down1 => ~NO_FANOUT~
+move_down2 => ~NO_FANOUT~
+enable11 => always0.IN1
+enable22 => always0.IN1
+
+
+|elevator5|ratedivider:r0
+dividerenable => q.OUTPUTSELECT
+dividerenable => q.OUTPUTSELECT
+dividerenable => q.OUTPUTSELECT
+clock => q[0]~reg0.CLK
+clock => q[1]~reg0.CLK
+clock => q[2]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+load[0] => q.DATAB
+load[0] => q.DATAB
+load[1] => q.DATAB
+load[1] => q.DATAB
+load[2] => q.DATAB
+load[2] => q.DATAB
+
+
+|elevator5|ratedivider:r1
+dividerenable => q.OUTPUTSELECT
+dividerenable => q.OUTPUTSELECT
+dividerenable => q.OUTPUTSELECT
+clock => q[0]~reg0.CLK
+clock => q[1]~reg0.CLK
+clock => q[2]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+load[0] => q.DATAB
+load[0] => q.DATAB
+load[1] => q.DATAB
+load[1] => q.DATAB
+load[2] => q.DATAB
+load[2] => q.DATAB
+
+
+|elevator5|ratedividerdoors:r2
+ratedoorenable => q.OUTPUTSELECT
+ratedoorenable => q.OUTPUTSELECT
+ratedoorenable => q.OUTPUTSELECT
+ratedoorenable => q.OUTPUTSELECT
+ratedoorenable => q.OUTPUTSELECT
+clock => q[0]~reg0.CLK
+clock => q[1]~reg0.CLK
+clock => q[2]~reg0.CLK
+clock => q[3]~reg0.CLK
+clock => q[4]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+load[0] => q.DATAB
+load[0] => q.DATAB
+load[1] => q.DATAB
+load[1] => q.DATAB
+load[2] => q.DATAB
+load[2] => q.DATAB
+load[3] => q.DATAB
+load[3] => q.DATAB
+load[4] => q.DATAB
+load[4] => q.DATAB
+
+
+|elevator5|ratedivider:r3
+dividerenable => q.OUTPUTSELECT
+dividerenable => q.OUTPUTSELECT
+dividerenable => q.OUTPUTSELECT
+clock => q[0]~reg0.CLK
+clock => q[1]~reg0.CLK
+clock => q[2]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+load[0] => q.DATAB
+load[0] => q.DATAB
+load[1] => q.DATAB
+load[1] => q.DATAB
+load[2] => q.DATAB
+load[2] => q.DATAB
+
+
+|elevator5|ratedivider:r4
+dividerenable => q.OUTPUTSELECT
+dividerenable => q.OUTPUTSELECT
+dividerenable => q.OUTPUTSELECT
+clock => q[0]~reg0.CLK
+clock => q[1]~reg0.CLK
+clock => q[2]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+load[0] => q.DATAB
+load[0] => q.DATAB
+load[1] => q.DATAB
+load[1] => q.DATAB
+load[2] => q.DATAB
+load[2] => q.DATAB
+
+
+|elevator5|ratedividerdoors:r5
+ratedoorenable => q.OUTPUTSELECT
+ratedoorenable => q.OUTPUTSELECT
+ratedoorenable => q.OUTPUTSELECT
+ratedoorenable => q.OUTPUTSELECT
+ratedoorenable => q.OUTPUTSELECT
+clock => q[0]~reg0.CLK
+clock => q[1]~reg0.CLK
+clock => q[2]~reg0.CLK
+clock => q[3]~reg0.CLK
+clock => q[4]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+load[0] => q.DATAB
+load[0] => q.DATAB
+load[1] => q.DATAB
+load[1] => q.DATAB
+load[2] => q.DATAB
+load[2] => q.DATAB
+load[3] => q.DATAB
+load[3] => q.DATAB
+load[4] => q.DATAB
+load[4] => q.DATAB
+
+
+|elevator5|datapath:data1
+clock => current_floor[0]~reg0.CLK
+clock => current_floor[1]~reg0.CLK
+move_up => always0.IN1
+move_down => always0.IN1
+destination[0] => LessThan0.IN2
+destination[0] => LessThan1.IN2
+destination[1] => LessThan0.IN1
+destination[1] => LessThan1.IN1
+reset => current_floor.OUTPUTSELECT
+reset => current_floor.OUTPUTSELECT
+current_floor[0] <= current_floor[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_floor[1] <= current_floor[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|elevator5|datapath:data2
+clock => current_floor[0]~reg0.CLK
+clock => current_floor[1]~reg0.CLK
+move_up => always0.IN1
+move_down => always0.IN1
+destination[0] => LessThan0.IN2
+destination[0] => LessThan1.IN2
+destination[1] => LessThan0.IN1
+destination[1] => LessThan1.IN1
+reset => current_floor.OUTPUTSELECT
+reset => current_floor.OUTPUTSELECT
+current_floor[0] <= current_floor[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_floor[1] <= current_floor[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|elevator5|decoder_right:dc0
+doorenable => s4.DATAIN
+doorenable => s2.DATAIN
+doorenable => s1.DATAIN
+doorenable => s5.DATAIN
+s0 <= <VCC>
+s1 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s2 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s3 <= <VCC>
+s4 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s5 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s6 <= <VCC>
+
+
+|elevator5|decoder_left:dc1
+doorenable => s4.DATAIN
+doorenable => s2.DATAIN
+doorenable => s1.DATAIN
+doorenable => s5.DATAIN
+s0 <= <VCC>
+s1 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s2 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s3 <= <VCC>
+s4 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s5 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s6 <= <VCC>
+
+
+|elevator5|decoder:dc2
+a => s0.IN0
+a => s0.IN0
+a => s1.IN0
+a => s0.IN0
+a => s0.IN0
+a => s4.IN0
+a => s5.IN0
+b => s0.IN1
+b => s0.IN1
+b => s1.IN0
+b => s0.IN1
+b => s0.IN1
+b => s4.IN0
+c => s0.IN1
+c => s1.IN1
+c => s1.IN1
+c => s2.IN1
+c => s2.IN1
+c => s5.IN1
+c => s6.IN1
+c => s0.IN1
+c => s0.IN1
+c => s0.IN1
+c => s4.IN1
+d => s0.IN1
+d => s0.IN1
+d => s0.IN1
+d => s1.IN1
+d => s1.IN1
+d => s3.IN1
+d => s4.IN1
+d => s4.IN1
+d => s5.IN1
+d => s5.IN1
+d => s6.IN1
+d => s0.IN1
+d => s1.IN1
+d => s1.IN1
+d => s2.IN1
+d => s3.IN1
+d => s6.IN1
+s0 <= s0.DB_MAX_OUTPUT_PORT_TYPE
+s1 <= s1.DB_MAX_OUTPUT_PORT_TYPE
+s2 <= s2.DB_MAX_OUTPUT_PORT_TYPE
+s3 <= s3.DB_MAX_OUTPUT_PORT_TYPE
+s4 <= s4.DB_MAX_OUTPUT_PORT_TYPE
+s5 <= s5.DB_MAX_OUTPUT_PORT_TYPE
+s6 <= s6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|elevator5|decoder_right:dc4
+doorenable => s4.DATAIN
+doorenable => s2.DATAIN
+doorenable => s1.DATAIN
+doorenable => s5.DATAIN
+s0 <= <VCC>
+s1 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s2 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s3 <= <VCC>
+s4 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s5 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s6 <= <VCC>
+
+
+|elevator5|decoder_left:dc5
+doorenable => s4.DATAIN
+doorenable => s2.DATAIN
+doorenable => s1.DATAIN
+doorenable => s5.DATAIN
+s0 <= <VCC>
+s1 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s2 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s3 <= <VCC>
+s4 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s5 <= doorenable.DB_MAX_OUTPUT_PORT_TYPE
+s6 <= <VCC>
+
+
+|elevator5|decoder:dc3
+a => s0.IN0
+a => s0.IN0
+a => s1.IN0
+a => s0.IN0
+a => s0.IN0
+a => s4.IN0
+a => s5.IN0
+b => s0.IN1
+b => s0.IN1
+b => s1.IN0
+b => s0.IN1
+b => s0.IN1
+b => s4.IN0
+c => s0.IN1
+c => s1.IN1
+c => s1.IN1
+c => s2.IN1
+c => s2.IN1
+c => s5.IN1
+c => s6.IN1
+c => s0.IN1
+c => s0.IN1
+c => s0.IN1
+c => s4.IN1
+d => s0.IN1
+d => s0.IN1
+d => s0.IN1
+d => s1.IN1
+d => s1.IN1
+d => s3.IN1
+d => s4.IN1
+d => s4.IN1
+d => s5.IN1
+d => s5.IN1
+d => s6.IN1
+d => s0.IN1
+d => s1.IN1
+d => s1.IN1
+d => s2.IN1
+d => s3.IN1
+d => s6.IN1
+s0 <= s0.DB_MAX_OUTPUT_PORT_TYPE
+s1 <= s1.DB_MAX_OUTPUT_PORT_TYPE
+s2 <= s2.DB_MAX_OUTPUT_PORT_TYPE
+s3 <= s3.DB_MAX_OUTPUT_PORT_TYPE
+s4 <= s4.DB_MAX_OUTPUT_PORT_TYPE
+s5 <= s5.DB_MAX_OUTPUT_PORT_TYPE
+s6 <= s6.DB_MAX_OUTPUT_PORT_TYPE
+
+
